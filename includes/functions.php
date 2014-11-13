@@ -1,6 +1,7 @@
 <?php
-
-function connect(){
+	include('connection.php');
+	session_start();
+	function connect(){
 	$conn=oci_connect("jnunez","Gato8115851","oracle.cise.ufl.edu:1521/orcl");
 	return $conn;
 	}
@@ -38,7 +39,5 @@ function connect(){
 	oci_close($conn);
 	return $flag;
 	}
-
-
 
 ?>
