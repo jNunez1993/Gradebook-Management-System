@@ -1,0 +1,49 @@
+<?php
+	include ('includes/functions.php');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GatorLearning</title>
+<!--Bootstrap-->
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<?php 
+include ('navbar.php');
+?>
+
+	<nav class="navbar navbar-default navbar-fixed" role="navigation">
+	    <div class="container-fluid">
+	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
+		    <ul class="nav navbar-nav">
+			    <li class="active"><a href="#">Home</a></li>
+			    <li><a href="#">Grades</a></li>
+			    <li><a href="#">Courses</a></li>
+		    </ul>
+	    </div>
+    </nav>
+
+<!-- LOGIN PANEL     -->
+	<img src=https://rellergold.com/store/avactis-images/FLORIDA-GATORS-LOGO-psd12415_0.png />
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 well">
+			<form name = "form1" method="post" action="login.php">
+				<input type="text" name="userName" placeholder="Username"/>
+				<input type="password" name="password" placeholder="Password"/>
+				<input type="submit" name="SubmitLogin" value ="Login" class="btn btn-primary"/>
+			</form>
+		</div>
+		</div>
+	</div>  
+<!-- end Login -->
+
+</body>
+</html>
