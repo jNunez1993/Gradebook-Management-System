@@ -1,3 +1,5 @@
+
+
 <?php
 	include 'includes/functions.php';
 	$username= $_POST["userName"];
@@ -6,6 +8,7 @@
 	$_SESSION["password"]="$password";
 	$flag=False;
 	$flag1=False;
+	
 	
 	if(check_student($username,$password)==True){
 	//$flag=true;
@@ -18,7 +21,8 @@
 		header("location:gatorLearning.php");
 	}
 	if($flag==false && $flag1==false){
-	echo "Invalid information. Please try again";
+		header("refresh: 3; index.html");
+		echo "Invalid Credentials. You will be redirected in 3 seconds.";
 	}
 
 ?>
