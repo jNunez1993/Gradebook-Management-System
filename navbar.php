@@ -1,3 +1,4 @@
+
 <?php
 	echo '
 	<nav class="navbar navbar-default navbar-fixed" role="navigation">
@@ -14,3 +15,4 @@
 
 
 ?>
+

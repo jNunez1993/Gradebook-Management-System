@@ -11,6 +11,7 @@
 <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
 <script src="js/bootstrap.min.js"></script>
 
+
 </head>
 <body>
 <?php
@@ -25,29 +26,24 @@
 	$stid=oci_parse($conn,$query);
 	oci_execute($stid);
 ?>
-<?php 
-include ('navbar.php');
-?>
 
-	<div class ="container-fluid">
-		<div class = "row">
-			<div class ="col-md-3">
-				<div class = "list-group">
-					<li href="#" class="list-group-item active"></li>
-					<?php
+	<nav class="navbar navbar-default navbar-fixed" role="navigation">
+	    <div class="container-fluid">
+	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
+		    <ul class="nav navbar-nav">
+			    <li class="active"><a href="#">Home</a></li>
+			    <?php
 						while (($row=oci_fetch_row($stid))!=false){
 					        foreach($row as $item){
-							echo  '<a class = "list-group-item" href= "http://localhost/class.php?class=" ' .$item . '>' . $item . '</a>';
+							echo  '<li><a class = "active" href= "http://localhost/class.php?class=" ' .$item . '>' . $item . '</a></li>';
 							}
 					    }
 					?>
-				</div>
+				<li><a href="logout.php" >Logout</a></li>
+		    </ul>
+	    </div>
+    </nav>
 
-			</div>
-			<div class ="col-md-8 col-md-offset-1 well">
-			</div>
-		</div>
-	</div>
 
 </body>
 </html>
