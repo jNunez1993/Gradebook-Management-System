@@ -44,6 +44,29 @@
 	    </div>
     </nav>
 
+    <div class ="container-fluid">
+    	<div class ="row">
+       		<div class = "col-md-3">
+	    		<ul class="nav nav-pills nav-stacked">
+	  				<li role="presentation" class="active"><a href="#">Home</a></li>
+	  				<li role="presentation"><a href="#">Courses</a></li>
+	 	 			<li role="presentation"><a href="#">Grades</a></li>
+	 	 			<li role="presentation"><a href="#">Assignments</a></li>
+	 	 			<li role="presentation"><a href="#">Resources</a></li>
+	 	 			<li role="presentation"><a href="#">Chat</a></li>
+				</ul>
+			</div>
+			<div class = "col-md-7">
+				<div class ="list-group">
+	    			<h4 class="list-group-item-heading">Announcements</h4>
+    				<p class="list-group-item-text">...</p>
+    			</div>
+    		</div>
+
+			</div>
+    	</div>
+    </div>
+
 
 </body>
 </html>
