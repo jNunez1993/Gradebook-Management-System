@@ -8,9 +8,9 @@
 	<title> CIS 4301</title>
 <!--Bootstrap-->
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-<script src="js/bootstrap.min.js"></script>
-
+<link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
 
 </head>
 <body>
@@ -32,18 +32,35 @@
 	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
 		    <ul class="nav navbar-nav">
 			    <li class="active"><a href="#">Home</a></li>
+			    <!--previous link for courses href= "http://localhost/class.php?class=" -->
 			    <?php
 						while (($row=oci_fetch_row($stid))!=false){
 					        foreach($row as $item){
-							echo  '<li><a class = "active" href= "http://localhost/class.php?class=" ' .$item . '>' . $item . '</a></li>';
+							
+							echo  
+							'<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' . $item . 
+								'<span class = "caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu">
+						            <li><a href="course.php?course=' . $item . '">Home</a></li>
+						            <li><a href="#">Another action</a></li>
+						            <li><a href="#">Something else here</a></li>
+						            <li class="divider"></li>
+						            <li><a href="#">Separated link</a></li>
+						            <li class="divider"></li>
+						            <li><a href="#">One more separated link</a></li>
+					          	</ul>
+							</li>';
 							}
 					    }
-					?>
+				?>
 				<li><a href="logout.php" >Logout</a></li>
 		    </ul>
 	    </div>
     </nav>
-
+    
+    <!--SIDE MENU-->
     <div class ="container-fluid">
     	<div class ="row">
        		<div class = "col-md-3">
@@ -51,7 +68,6 @@
 	  				<li role="presentation" class="active"><a href="#">Home</a></li>
 	  				<li role="presentation"><a href="#">Courses</a></li>
 	 	 			<li role="presentation"><a href="#">Grades</a></li>
-	 	 			<li role="presentation"><a href="#">Assignments</a></li>
 	 	 			<li role="presentation"><a href="#">Resources</a></li>
 	 	 			<li role="presentation"><a href="#">Chat</a></li>
 				</ul>
