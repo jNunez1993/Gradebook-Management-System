@@ -20,12 +20,13 @@
 <?php
 	$username = $_SESSION["username"];
 	$course = $_GET['course'];
-	$UFID = "SELECT student_id FROM student,course WHERE student.UFID = course.student_ID AND student.gatorLink = '$username'";
-//USE FOR LATER
+	$conn= connect();
+	$query = "SELECT student_id FROM student,course WHERE student.UFID = course.student_ID AND student.gatorLink = '$username'";
+	$stid = oci_parse($conn, $query);
+	oci_execute($stid, OCI_DEFAULT);
+	$row = oci_fetch_array($stid);
+	$_SESSION["UFID"] = $row[0];
 
-//echo	'Course is ' . $course . 'User is' . $username;
-	// $ufid=oci_parse($conn,$UFID);
-	// oci_execute($ufid);
 ?>
 
     <div class ="container-fluid">
@@ -37,7 +38,7 @@
 	  				<li role="presentation" class="active"><a href="#">Home</a></li>
 	 	 			<li role="presentation">
 	 	 				<a href="#" id = "Grades">
-	 	 					Grades
+	 	 					Gradebook
 	 	 				</a>
 	 	 			</li>
 	 	 			<li role="presentation"><a href="#" id = "Assignements">Assignments</a></li>
@@ -51,7 +52,7 @@
 			</div>
 <!--Main Body-->
 
-			<div id = "main_section">
+			<div class = "col-md-5" id = "main_section">
 				<h1> Place Holder for <?php echo $course?> 
 				</h1>
 				<div id ="main_body">

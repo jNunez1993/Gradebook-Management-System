@@ -1,17 +1,48 @@
 $(document).ready(function(){
 	$('ul#side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
-		//alert(menu_item);
 		//$('#main_body').load('course/' + menu_item + '.php' );
-		//$('#main_body').html('<h1>' + menu_item + '</h1>');
+
+		var menu_url = '';
+		if (menu_item == "Grades"){
+			menu_url = 'includes/course_grades.php';
+			console.log("grades");
+		}
+		if (menu_item == "Assignements"){
+			menu_url = 'includes/changeCourseMain.php';
+			console.log("assignements");
+		}
+		if (menu_item == "Resources"){
+			menu_url = 'includes/changeCourseMain.php';
+			console.log("assignements");
+		}
+		if (menu_item == "Chat"){
+			menu_url = 'includes/changeCourseMain.php';
+			console.log("assignements");
+		}
+		if (menu_item == "Test"){
+			menu_url = 'includes/changeCourseMain.php';
+			console.log("assignements");
+		}
+		if (menu_item == "Videos"){
+			menu_url = 'includes/changeCourseMain.php';
+			console.log("assignements");
+		}
+		if (menu_item == "Help"){
+			menu_url = 'includes/changeCourseMain.php';
+			console.log("assignements");
+		}
+
 		$.ajax({ 
-			url: 'includes/changeCourseMain.php',
-			data: {type: menu_item},
+			url: menu_url,
+			data: {type: menu_item },
 			type: 'post',
 			success: function(output) {
-				$('#main_body').html('<h3>' + output + '</h3>');
+				$('#main_body').html(output);
             }
 		});
+
+
 		return false;
 	});
 

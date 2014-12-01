@@ -39,10 +39,5 @@
 	oci_close($conn);
 	return $flag;
 	}
-	function check_side_body($menu_item, $ufid){
-		$conn = connect();
-		if ($menu_item == 'Grades') {
-			$query = "SELECT grades FROM course WHERE course.student_ID = '$ufid'"; 
-		}
-	}
+
 ?>
