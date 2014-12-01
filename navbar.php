@@ -6,7 +6,7 @@
 		$query="SELECT distinct course_name FROM professor,course WHERE professor.UFID=course.professor_ID AND professor.gatorLink='$username'";
 	}
 	if ($_SESSION["viewType"] == "student") {
-		$query="SELECT course_name FROM student,course WHERE student.UFID=course.student_ID AND student.gatorLink='$username'";
+		$query="SELECT distinct course_name FROM student,course WHERE student.UFID=course.student_ID AND student.gatorLink='$username'";
 	}
 	$stid=oci_parse($conn,$query);
 	oci_execute($stid);

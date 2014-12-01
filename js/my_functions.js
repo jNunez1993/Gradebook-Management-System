@@ -10,27 +10,27 @@ $(document).ready(function(){
 		}
 		if (menu_item == "Assignements"){
 			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignements");
+			console.log("assignments");
 		}
 		if (menu_item == "Resources"){
 			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignements");
+			console.log("assignments");
 		}
 		if (menu_item == "Chat"){
 			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignements");
+			console.log("assignments");
 		}
 		if (menu_item == "Test"){
 			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignements");
+			console.log("assignments");
 		}
 		if (menu_item == "Videos"){
 			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignements");
+			console.log("assignments");
 		}
 		if (menu_item == "Help"){
 			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignements");
+			console.log("assignments");
 		}
 
 		$.ajax({ 

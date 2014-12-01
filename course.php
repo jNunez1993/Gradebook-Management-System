@@ -26,6 +26,7 @@
 	oci_execute($stid, OCI_DEFAULT);
 	$row = oci_fetch_array($stid);
 	$_SESSION["UFID"] = $row[0];
+	$_SESSION["Course"] = $course;
 
 ?>
 
@@ -41,7 +42,7 @@
 	 	 					Gradebook
 	 	 				</a>
 	 	 			</li>
-	 	 			<li role="presentation"><a href="#" id = "Assignements">Assignments</a></li>
+	 	 			<li role="presentation"><a href="#" id = "Assignments">Assignments</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Resources">Resources</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Chat">Chat</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Test">Test/Quizzes</a></li>
@@ -53,7 +54,7 @@
 <!--Main Body-->
 
 			<div class = "col-md-5" id = "main_section">
-				<h1> Place Holder for <?php echo $course?> 
+				<h1> Place Holder for <?php echo $course ?> 
 				</h1>
 				<div id ="main_body">
 					
