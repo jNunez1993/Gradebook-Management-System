@@ -36,7 +36,7 @@
 <!-- side menu -->
        		<div class = "col-md-3">
 	    		<ul id = "side_menu" class="nav nav-pills nav-stacked">
-	  				<li role="presentation" class="active"><a href="#">Home</a></li>
+	  				<li role="presentation" class="active"><a href="gatorLearning.php">Home</a></li>
 	 	 			<li role="presentation">
 	 	 				<a href="#" id = "Grades">
 	 	 					Gradebook
@@ -56,7 +56,7 @@
 			<div class = "col-md-5" id = "main_section">
 				<h1> Place Holder for <?php echo $course ?> 
 				</h1>
-				<div id ="main_body">
+				<div id ="main_body" class = "well">
 					
 				</div>
 			</div>

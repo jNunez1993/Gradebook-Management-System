@@ -3,36 +3,11 @@ $(document).ready(function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
 
-		var menu_url = '';
+		var menu_url = 'includes/changeCourseMain.php';
 		if (menu_item == "Grades"){
 			menu_url = 'includes/course_grades.php';
 			console.log("grades");
 		}
-		if (menu_item == "Assignements"){
-			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignments");
-		}
-		if (menu_item == "Resources"){
-			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignments");
-		}
-		if (menu_item == "Chat"){
-			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignments");
-		}
-		if (menu_item == "Test"){
-			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignments");
-		}
-		if (menu_item == "Videos"){
-			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignments");
-		}
-		if (menu_item == "Help"){
-			menu_url = 'includes/changeCourseMain.php';
-			console.log("assignments");
-		}
-
 		$.ajax({ 
 			url: menu_url,
 			data: {type: menu_item },
@@ -41,10 +16,10 @@ $(document).ready(function(){
 				$('#main_body').html(output);
             }
 		});
-
-
 		return false;
 	});
+
+
 
 
 });
