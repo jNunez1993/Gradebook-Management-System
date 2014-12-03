@@ -74,8 +74,22 @@
 			</div>
 			<div class = "col-md-7">
 				<div class ="list-group">
-	    			<h4 class="list-group-item-heading">Announcements</h4>
-    				<p class="list-group-item-text">...</p>
+    				<h4 class="list-group-item-heading">Announcements</h4>
+					<div id = "annoucements">
+	    				<table class="table table-striped">
+	    				<?php 
+	    					$query = "SELECT time, course, message FROM ANNOUNCEMENTS ORDER BY id DESC";
+	    					$conn=connect();
+	    					$stid = oci_parse($conn,$query);
+							oci_execute($stid);
+							while(($row = oci_fetch_array($stid)) != false) {
+								echo '<tr> ' . $row[0] . '</tr>';
+								echo '<tr> ' . $row[1] . '</tr>';
+								echo '<tr> ' . $row[2] . '</tr>';
+							}
+	    				?>
+	    				</table>
+	    			</div>
     			</div>
     		</div>
 
