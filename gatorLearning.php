@@ -74,10 +74,11 @@
 			</div>
 			<div class = "col-md-7">
 				<div class ="list-group">
+
 					 <h4 class="list-group-item-heading">Announcements</h4>
 
 	    			<div id = "annoucements">
-	    				<table class="table table-hover">
+	    				<table class="table table-hover table-striped">
 	    				<?php 
 	    					$query = "SELECT time,message,course FROM ANNOUNCEMENTS ORDER BY id DESC";
 	    					//$query = " SELECT * FROM ANNOUNCEMENTS";
@@ -85,15 +86,18 @@
 	    					$stid = oci_parse($conn,$query);
 							oci_execute($stid);
 							while(($row = oci_fetch_array($stid)) != false) {
-								echo '<tr> ' . $row[1] . '</tr>';
+								echo '<tr>';
+								echo '<td> ' . $row[0] . '</td>';
+								echo '<td> ' . $row[1] . '</td>';
+								echo '<td> ' . $row[2] . '</td>';
+								echo '</tr>';
 							}
-
 	    				?>
 	    				</table>
 	    			</div>
-	    			
-	 
+
     			</div>
+
     		</div>
 
 			</div>
