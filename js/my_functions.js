@@ -4,6 +4,9 @@ $(document).ready(function(){
 		//$('#main_body').load('course/' + menu_item + '.php' );
 
 		var menu_url = 'includes/changeCourseMain.php';
+		if (menu_item == "Assignments") {
+			menu_url = 'includes/changeCourseAssignments.php';
+		}
 		$.ajax({ 
 			url: menu_url,
 			data: {type: menu_item },

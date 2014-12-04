@@ -16,7 +16,7 @@
 	echo '
 	<nav class="navbar navbar-default navbar-fixed" role="navigation">
 	    <div class="container-fluid">
-	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
+	    	<a class="navbar-brand" href="gatorLearning.php">CIS 4301 PROJECT</a>
 		    <ul class="nav navbar-nav">
 			    <li class="active"><a href="gatorLearning.php">Home</a></li>
 			    <!--previous link for courses href= "http://localhost/class.php?class=" -->
