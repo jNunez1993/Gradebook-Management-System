@@ -11,6 +11,7 @@
 <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/my_functions.js"></script>
 
 </head>
 <body>
@@ -64,12 +65,12 @@
     <div class ="container-fluid">
     	<div class ="row">
        		<div class = "col-md-3">
-	    		<ul class="nav nav-pills nav-stacked">
-	  				<li role="presentation" class="active"><a href="#">Home</a></li>
-	  				<li role="presentation"><a href="#">Courses</a></li>
-	 	 			<li role="presentation"><a href="#">Grades</a></li>
-	 	 			<li role="presentation"><a href="#">Resources</a></li>
-	 	 			<li role="presentation"><a href="#">Chat</a></li>
+	    		<ul class="nav nav-pills nav-stacked" id = "main_side_menu">
+	  				<li role="presentation" class="active"><a href="#" id = "Home">Home</a></li>
+	  				<li role="presentation"><a href="#" id = "Course">Courses</a></li>
+	 	 			<li role="presentation"><a href="#" id = "Grade">Grades</a></li>
+	 	 			<li role="presentation"><a href="#" id = "Resource">Resources</a></li>
+	 	 			<li role="presentation"><a href="#" id = "Chat">Chat</a></li>
 				</ul>
 			</div>
 			<div class = "col-md-7">
@@ -97,14 +98,14 @@
 
 	    				?>
 	    				</table>
+
 	    			</div>
-    			</div>
+	    		</div>
+
     		</div>
 
-			</div>
-    	</div>
+		</div>
     </div>
-
 
 </body>
 </html>

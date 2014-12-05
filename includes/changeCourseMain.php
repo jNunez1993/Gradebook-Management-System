@@ -32,16 +32,6 @@ if(isset($_POST['type'])){
 		echo("Action works! " . $_POST['type']);
 	}
 
-	if ($_POST['type'] == "Assignments") {
-
-	}
-	if ($_POST['type'] == "Resources") {
-
-	}
-	if ($_POST['type'] == "Test") {
-
-
-	}
 
 }
 ?>
