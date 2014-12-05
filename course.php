@@ -59,7 +59,6 @@
 				<div id ="main_body">
 					
 				</div>
-
 			</div>
     	</div>
     </div>
