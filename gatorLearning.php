@@ -32,7 +32,7 @@
 	    <div class="container-fluid">
 	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
 		    <ul class="nav navbar-nav">
-			    <li class="active"><a href="#">Home</a></li>
+			    <li><a href="#">Home</a></li>
 			    <!--previous link for courses href= "http://localhost/class.php?class=" -->
 			    <?php
 						while (($row=oci_fetch_row($stid))!=false){

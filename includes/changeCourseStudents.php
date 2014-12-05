@@ -18,10 +18,15 @@ if(isset($_POST['type'])){
 	oci_execute($stid);
 
 	echo '<table class = "table table-hover table-condensed">';
-	
+	echo '	<tr>
+				<th> First Name </th>
+				<th> Last Name </th>	
+			</tr>
+	';
 	while (($row = oci_fetch_row($stid)) != false){
 		echo 	'<tr>
-					<td> ' . $row[0] . ',' .$row[1]  . '</td> 
+					<td> ' . $row[0]  . '</td> 
+					<td> ' . $row[1]  . '</td> 
 				</tr>';
 	}
 	echo '</table>';

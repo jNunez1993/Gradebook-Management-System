@@ -36,7 +36,7 @@
 <!-- side menu -->
        		<div class = "col-md-3">
 	    		<ul id = "side_menu" class="nav nav-pills nav-stacked">
-	  				<li role="presentation" class="active"><a href="gatorLearning.php">Home</a></li>
+	  				<li role="presentation"><a href="#">Home</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Grades">Gradebook </a>
 	 	 			</li>
 	 	 			<li role="presentation"><a href="#" id = "Assignments">Assignments</a></li>

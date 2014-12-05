@@ -22,6 +22,10 @@ if(isset($_POST['type'])){
 		oci_execute($stid);
 
 		echo '<table class = "table table-hover table-condensed">';
+		echo '	
+					<th> Assignment Name </th>
+					<th> Assignment Grade </th>
+			';
 		$counter = 1;
 		while (($row = oci_fetch_row($stid)) != false){
 			echo 	'<tr>

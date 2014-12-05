@@ -18,7 +18,7 @@
 	    <div class="container-fluid">
 	    	<a class="navbar-brand" href="gatorLearning.php">CIS 4301 PROJECT</a>
 		    <ul class="nav navbar-nav">
-			    <li class="active"><a href="gatorLearning.php">Home</a></li>
+			    <li><a href="gatorLearning.php">Home</a></li>
 			    <!--previous link for courses href= "http://localhost/class.php?class=" -->
 			    ';
 						while (($row=oci_fetch_row($stid))!=false){
@@ -29,7 +29,8 @@
 								'<span class = "caret"></span>
 								</a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="course.php?course=' . $item . '">Home</a></li>						            <li><a href="#">Something different</a></li>
+									<li><a href="course.php?course=' . $item . '">Home</a></li>	
+						            <li><a href="#">Something different</a></li>
 						            <li><a href="#">Something else here</a></li>
 						            <li class="divider"></li>
 						            <li><a href="#">Separated link</a></li>
