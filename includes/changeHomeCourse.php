@@ -4,7 +4,8 @@ include ('functions.php');
 	$course = $_SESSION["Course"];
 	$conn= connect();
 	
-	$query = "SELECT distinct course_name FROM course WHERE course.student_ID = '$ufid'"; 
+	$query = "SELECT distinct course_name 
+	FROM course WHERE course.student_ID = '$ufid'"; 
 	
 	$stid = oci_parse($conn,$query);
 	oci_execute($stid);

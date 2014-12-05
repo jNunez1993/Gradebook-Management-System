@@ -8,30 +8,23 @@ if(isset($_POST['type'])){
 	$course = $_SESSION["Course"];
 	$conn= connect();
 	
+	$query = 	"SELECT DISTINCT student.fname,student.lname 
+				FROM course,student
+				WHERE  course.course_name = '$course' 
+				AND course.student_ID = student.UFID"; 
 
-	if ($_POST['type'] == "Students") {
-		$query = "SELECT distinct assignment_name, grade FROM grade,course WHERE grade.student_ID = '$ufid' AND grade.course_ID = '$course' ORDER BY assignment_name ASC "; 
-	
 //NEEDS TO BE GENERIC
+	$stid = oci_parse($conn,$query);
+	oci_execute($stid);
 
-		$stid = oci_parse($conn,$query);
-		oci_execute($stid);
-
-		echo '<table class = "table table-hover table-condensed">';
-		$counter = 1;
-		while (($row = oci_fetch_row($stid)) != false){
-			echo 	'<tr>
-						<td> ' . $row[0]  . '</td> 
-						<td> ' . $row[1]  . '</td>				
-					</tr>';
-			$counter++;
-		}
-		echo '</table>';
-
-	}else{
-		echo("Action works! " . $_POST['type']);
+	echo '<table class = "table table-hover table-condensed">';
+	
+	while (($row = oci_fetch_row($stid)) != false){
+		echo 	'<tr>
+					<td> ' . $row[0] . ',' .$row[1]  . '</td> 
+				</tr>';
 	}
-
+	echo '</table>';
 
 }
 ?>

@@ -10,7 +10,11 @@ if(isset($_POST['type'])){
 	
 
 	if ($_POST['type'] == "Grades") {
-		$query = "SELECT distinct assignment_name, grade FROM grade,course WHERE grade.student_ID = '$ufid' AND grade.course_ID = '$course' ORDER BY assignment_name ASC "; 
+		$query = "SELECT distinct assignment_name, grade 
+		FROM grade,course 
+		WHERE grade.student_ID = '$ufid' 
+		AND grade.course_name = '$course' 
+		ORDER BY assignment_name ASC "; 
 	
 //NEEDS TO BE GENERIC
 
