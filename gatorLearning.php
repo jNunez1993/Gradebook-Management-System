@@ -11,6 +11,7 @@
 <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/my_functions.js"></script>
 
 </head>
 <body>
@@ -64,46 +65,43 @@
     <div class ="container-fluid">
     	<div class ="row">
        		<div class = "col-md-3">
-	    		<ul class="nav nav-pills nav-stacked">
-	  				<li role="presentation" class="active"><a href="#">Home</a></li>
-	  				<li role="presentation"><a href="#">Courses</a></li>
+	    		<ul class="nav nav-pills nav-stacked" id = "main_side_menu">
+	  				<li role="presentation" class="active"><a href="#" id = "Home">Home</a></li>
+	  				<li role="presentation"><a href="#" id = "Course">Courses</a></li>
 	 	 			<li role="presentation"><a href="#">Grades</a></li>
 	 	 			<li role="presentation"><a href="#">Resources</a></li>
 	 	 			<li role="presentation"><a href="#">Chat</a></li>
 				</ul>
 			</div>
 			<div class = "col-md-7">
-				<div class ="list-group">
-
-					 <h4 class="list-group-item-heading">Announcements</h4>
-
-	    			<div id = "annoucements">
-	    				<table class="table table-hover table-striped">
-	    				<?php 
-	    					$query = "SELECT time,message,course FROM ANNOUNCEMENTS ORDER BY id DESC";
-	    					//$query = " SELECT * FROM ANNOUNCEMENTS";
-	    					$conn=connect();
-	    					$stid = oci_parse($conn,$query);
-							oci_execute($stid);
-							while(($row = oci_fetch_array($stid)) != false) {
-								echo '<tr>';
-								echo '<td> ' . $row[0] . '</td>';
-								echo '<td> ' . $row[1] . '</td>';
-								echo '<td> ' . $row[2] . '</td>';
-								echo '</tr>';
-							}
-	    				?>
-	    				</table>
+				<div id = "main_body">
+					<div class ="list-group">
+						<h4 class="list-group-item-heading">Announcements</h4>
+		    			<div id = "Announcements">
+		    				<table class="table table-hover table-striped">
+		    				<?php 
+		    					$query = "SELECT time,message,course FROM ANNOUNCEMENTS ORDER BY id DESC";
+		    					//$query = " SELECT * FROM ANNOUNCEMENTS";
+		    					$conn=connect();
+		    					$stid = oci_parse($conn,$query);
+								oci_execute($stid);
+								while(($row = oci_fetch_array($stid)) != false) {
+									echo '<tr>';
+									echo '<td> ' . $row[0] . '</td>';
+									echo '<td> ' . $row[1] . '</td>';
+									echo '<td> ' . $row[2] . '</td>';
+									echo '</tr>';
+								}
+		    				?>
+		    				</table>
+		    			</div>
 	    			</div>
-
-    			</div>
+	    		</div>
 
     		</div>
 
-			</div>
-    	</div>
+		</div>
     </div>
-
 
 </body>
 </html>
