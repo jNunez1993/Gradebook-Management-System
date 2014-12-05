@@ -37,17 +37,12 @@
        		<div class = "col-md-3">
 	    		<ul id = "side_menu" class="nav nav-pills nav-stacked">
 	  				<li role="presentation" class="active"><a href="gatorLearning.php">Home</a></li>
-	 	 			<li role="presentation">
-	 	 				<a href="#" id = "Grades">
-	 	 					Gradebook
-	 	 				</a>
+	 	 			<li role="presentation"><a href="#" id = "Grades">Gradebook </a>
 	 	 			</li>
 	 	 			<li role="presentation"><a href="#" id = "Assignments">Assignments</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Resources">Resources</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Chat">Chat</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Test">Test/Quizzes</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Videos">Course Video</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Help">Help</a></li>
+	 	 			<li role="presentation"><a href="#" id = "Students">Students</a></li>
+
 
 				</ul>
 			</div>

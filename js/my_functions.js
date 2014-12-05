@@ -3,7 +3,7 @@ $(document).ready(function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
 
-		var menu_url = 'includes/changeCourseMain.php';
+		var menu_url = 'includes/changeCourseGrade.php';
 		if (menu_item == "Assignments") {
 			menu_url = 'includes/changeCourseAssignments.php';
 		}
@@ -31,11 +31,11 @@ $(document).ready(function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
 		console.log(menu_item);
-		var menu_url = 'includes/changeMainAnnouncements.php';
+		var menu_url = 'includes/changeHomeAnnouncements.php';
 		if (menu_item == "Course") {
-			menu_url = 'includes/changeMainCourse.php';
+			menu_url = 'includes/changeHomeCourse.php';
 		}else if (menu_item == "Grade") {
-			menu_url = 'includes/changeMainGrade.php';
+			menu_url = 'includes/changeHomeGrade.php';
 		}
 		$.ajax({ 
 			url: menu_url,
