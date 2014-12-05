@@ -34,6 +34,8 @@ $(document).ready(function(){
 		var menu_url = 'includes/changeMainAnnouncements.php';
 		if (menu_item == "Course") {
 			menu_url = 'includes/changeMainCourse.php';
+		}else if (menu_item == "Grade") {
+			menu_url = 'includes/changeMainGrade.php';
 		}
 		$.ajax({ 
 			url: menu_url,
