@@ -52,6 +52,7 @@
 				</h1>
 
 				<div id ="main_course_body">
+					<?php include ('includes/changeCourseHome.php') ?>
 				</div>
 			</div>
     	</div>

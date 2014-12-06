@@ -39,5 +39,10 @@
 	oci_close($conn);
 	return $flag;
 	}
-
+	function final_Grade($exam, $assignment)
+	{
+		$exam = $exam * 0.8;
+		$assignment = $assignment * 0.2;
+	    return $exam + $assignment;
+	}
 ?>

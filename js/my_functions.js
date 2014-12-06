@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$('ul#course_side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
-		var menu_url = "";
+		var menu_url = "includes/changeCourseHome.php";
 		if (menu_item == "Grades") {
 			menu_url = 'includes/changeCourseGrade.php';
 		}else if (menu_item == "Assignments") {
@@ -49,7 +49,9 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-// professor view
+/////////////////////////////////////////////////////////////////////////
+
+///////////////////////// PROFESSOR VIEW ////////////////////////////////
 	$('ul#prof_main_side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
