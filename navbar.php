@@ -19,12 +19,23 @@
 	    	<a class="navbar-brand" href="gatorLearning.php">CIS 4301 PROJECT</a>
 		    <ul class="nav navbar-nav">
 			    <li><a href="gatorLearning.php">Home</a></li>
-			    <!--previous link for courses href= "http://localhost/class.php?class=" -->
 			    ';
 						while (($row=oci_fetch_row($stid))!=false){
 					        foreach($row as $item){
-							echo  
-							'<li class="dropdown">
+								echo  
+								'<li>
+									<a href="course.php?course=' . $item . ' ">' . $item . '</a>
+								</li>';
+							}
+					    }
+	echo '		<li><a href="logout.php" >Logout</a></li>
+		    </ul>
+	    </div>
+    </nav>';
+
+?>
+
+<!-- <li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' . $item . 
 								'<span class = "caret"></span>
 								</a>
@@ -37,14 +48,4 @@
 						            <li class="divider"></li>
 						            <li><a href="#">One more separated link</a></li>
 					          	</ul>
-							</li>';
-							}
-					    }
-	echo '
-				<li><a href="logout.php" >Logout</a></li>
-		    </ul>
-	    </div>
-    </nav>
-    ';
-
-?>
+							</li> -->

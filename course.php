@@ -40,7 +40,6 @@
 	 	 			<li role="presentation"><a href="#" id = "Grades">Gradebook </a>
 	 	 			</li>
 	 	 			<li role="presentation"><a href="#" id = "Assignments">Assignments</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Resources">Resources</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Students">Students</a></li>
 
 

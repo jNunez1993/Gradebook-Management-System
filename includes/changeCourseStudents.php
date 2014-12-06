@@ -8,7 +8,7 @@ if(isset($_POST['type'])){
 	$course = $_SESSION["Course"];
 	$conn= connect();
 	
-	$query = 	"SELECT DISTINCT student.fname,student.lname 
+	$query = 	"SELECT DISTINCT student.fname,student.lname,count(*) over () totalRows 
 				FROM course,student
 				WHERE  course.course_name = '$course' 
 				AND course.student_ID = student.UFID"; 
@@ -23,13 +23,16 @@ if(isset($_POST['type'])){
 				<th> Last Name </th>	
 			</tr>
 	';
+	$totalRows = 0;
 	while (($row = oci_fetch_row($stid)) != false){
 		echo 	'<tr>
 					<td> ' . $row[0]  . '</td> 
 					<td> ' . $row[1]  . '</td> 
 				</tr>';
+		$totalRows++;
+
 	}
 	echo '</table>';
-
+	echo '<h3> Total number of people : ' . $totalRows . '</h3>';
 }
 ?>

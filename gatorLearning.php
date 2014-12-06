@@ -33,26 +33,13 @@
 	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
 		    <ul class="nav navbar-nav">
 			    <li><a href="#">Home</a></li>
-			    <!--previous link for courses href= "http://localhost/class.php?class=" -->
 			    <?php
 						while (($row=oci_fetch_row($stid))!=false){
 					        foreach($row as $item){
-							
-							echo  
-							'<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' . $item . 
-								'<span class = "caret"></span>
-								</a>
-								<ul class="dropdown-menu" role="menu">
-						            <li><a href="course.php?course=' . $item . '">Home</a></li>
-						            <li><a href="#">Another action</a></li>
-						            <li><a href="#">Something else here</a></li>
-						            <li class="divider"></li>
-						            <li><a href="#">Separated link</a></li>
-						            <li class="divider"></li>
-						            <li><a href="#">One more separated link</a></li>
-					          	</ul>
-							</li>';
+								echo  
+								'<li>
+									<a href="course.php?course=' . $item . ' ">' . $item . '</a>
+								</li>';
 							}
 					    }
 				?>
@@ -69,8 +56,6 @@
 	  				<li role="presentation"><a href="#" id = "Home">Home</a></li>
 	  				<li role="presentation"><a href="#" id = "Course">Courses</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Grade">Grades</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Resource">Resources</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Chat">Chat</a></li>
 				</ul>
 			</div>
 			<div class = "col-md-7">
