@@ -54,7 +54,7 @@ $(document).ready(function(){
 		console.log(menu_item);
 		var menu_url = 'includes/profHomeAnn.php';
 		if (menu_item == "Course") {
-			menu_url = 'includes/changeHomeCourse.php';
+			menu_url = 'includes/profHomeCourse.php';
 		}else if (menu_item == "Grade") {
 			menu_url = 'includes/profHomeGrade.php';
 		}
