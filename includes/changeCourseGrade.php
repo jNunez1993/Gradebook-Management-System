@@ -1,13 +1,14 @@
 <?php
 include ('functions.php');
 	$ufid = $_SESSION["UFID"];
+	$course = $_SESSION["Course"];
 	$conn= connect();
 	
 
 	$query = 
 			"SELECT distinct assignment_name,grade
 			FROM grade WHERE grade.student_ID = '$ufid' 
-			AND grade.course_name = 'ABE2062'";
+			AND grade.course_name = '$course'";
 
 	$stid = oci_parse($conn,$query);
 	oci_execute($stid);
@@ -27,7 +28,7 @@ include ('functions.php');
 		foreach(array_unique($row) as $item){
 			$query_average = 	
 								"SELECT distinct TRUNC(AVG(grade),1) 
-								AS average FROM grade where grade.course_name = 'ABE2062' 
+								AS average FROM grade where grade.course_name = '$course' 
 								AND grade.assignment_name = '$item' ";
 
 			$avgID = oci_parse($conn,$query_average);
