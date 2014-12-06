@@ -1,9 +1,9 @@
 <?php
-include ('includes/functions.php');
+include ('functions.php');
 //to view all students in the class. 
 	$conn= connect();
 	$username = $_SESSION["username"];
-	$course = $_SESSION["Course"];
+	$course = $_POST['type'];
 	$query = "	SELECT student.UFID, student.lname, student.fname 
 				FROM student,course,professor  
 				WHERE student.UFID = course.student_ID
@@ -17,7 +17,7 @@ include ('includes/functions.php');
 			ORDER BY assignment_name asc";
 	$stid1=oci_parse($conn,$query1);
 	oci_execute($stid1); 
-	echo "<table border='4' cellspacing='35'>\n";
+	echo "<table class = 'table table-hover'>\n";
 	echo "<tr>";
 	echo "<th> Student_ID </th>";
 	echo "<th> last Name </th>";

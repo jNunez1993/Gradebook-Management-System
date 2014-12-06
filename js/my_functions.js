@@ -47,6 +47,7 @@ $(document).ready(function(){
 		});
 		return false;
 	});
+// professor view
 	$('ul#professor_side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
@@ -68,5 +69,16 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$(document).on("click", ".view_gradeBook", function () {		
+		var menu_item = $(this).attr('id');
+		$.ajax({ 
+			url: 'includes/profGradebook.php',
+			data: {type : menu_item },
+			type: 'post',
+			success: function(output) {
+				$('#main_body').html(output);
+            }
+		});
+	});
 
 });
