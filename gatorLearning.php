@@ -66,7 +66,7 @@
     	<div class ="row">
        		<div class = "col-md-3">
 	    		<ul class="nav nav-pills nav-stacked" id = "main_side_menu">
-	  				<li role="presentation" class="active"><a href="#" id = "Home">Home</a></li>
+	  				<li role="presentation"><a href="#" id = "Home">Home</a></li>
 	  				<li role="presentation"><a href="#" id = "Course">Courses</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Grade">Grades</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Resource">Resources</a></li>
@@ -74,32 +74,35 @@
 				</ul>
 			</div>
 			<div class = "col-md-7">
-				<div class ="list-group">
-    				<h4 class="list-group-item-heading">Announcements</h4>
-					<div id = "annoucements">
-	    				<table class="table">
-	    					<tr> <th> Date and Time </th> <th> Course </th> <th> Message </th></tr>
-	    				<?php 
-	    					$query = "SELECT distinct time, course, message FROM ANNOUNCEMENTS 
-							INNER JOIN Course
-							ON Course.course_name = announcements.course
-							INNER JOIN Student
-							ON student.ufid = course.student_id
-							ORDER BY time DESC";
-	    					$conn=connect();
-	    					$stid = oci_parse($conn,$query);
-							oci_execute($stid);
-							while(($row = oci_fetch_array($stid)) != false) {
-								echo '<tr> ' . '</tr>';
-								echo '<td> ' . $row[0] . '</td>';
-								echo '<td> ' . $row[1] . '</td>';
-								echo '<td> ' . $row[2] . '</td>';
-							}
+				<div id ="main_body">
+					<div class ="list-group">
+	    				<h4 class="list-group-item-heading">Announcements</h4>
+						<div id = "Announcements">
+		    				<table class="table table-striped">
+		    					<tr> <th> Date and Time </th> <th> Course </th> <th> Message </th></tr>
+		    				<?php 
+		    					$query = "SELECT distinct time, course, message FROM ANNOUNCEMENTS 
+								INNER JOIN Course
+								ON Course.course_name = announcements.course
+								INNER JOIN Student
+								ON student.ufid = course.student_id
+								ORDER BY time DESC";
+		    					$conn=connect();
+		    					$stid = oci_parse($conn,$query);
+								oci_execute($stid);
+								while(($row = oci_fetch_array($stid)) != false) {
+									echo '<tr> ';
+									echo '<td> ' . $row[0] . '</td>';
+									echo '<td> ' . $row[1] . '</td>';
+									echo '<td> ' . $row[2] . '</td>';
+									echo '</tr>';
+								}
 
-	    				?>
-	    				</table>
+		    				?>
+		    				</table>
 
-	    			</div>
+		    			</div>
+		    		</div>
 	    		</div>
 
     		</div>
@@ -109,3 +112,5 @@
 
 </body>
 </html>
+
+
