@@ -1,17 +1,19 @@
 <?php
 include ('functions.php');
-
+$ufid = $_SESSION["UFID"];
 echo '
-	<div class ="list-group">
+	<div class = "row" id = "add_announce">
+		<a type="button" style = "float : right;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addAnnounce"> Add Announcement</a>
+	</div>
+
+	<div class ="list-group row">
 		<h4 class="list-group-item-heading">Announcements</h4>
 		<div id = "Announcements">
 			<table class="table table-hover table-striped">
 				<tr> <th> Date and Time </th> <th> Course </th> <th> Message </th></tr>';
-					$query = "SELECT distinct time, course, message FROM ANNOUNCEMENTS 
-								INNER JOIN Course
-								ON Course.course_name = announcements.course
-								INNER JOIN Student
-								ON student.ufid = course.student_id
+					$query = "SELECT distinct time, course, message FROM ANNOUNCEMENTS, Course
+								WHERE Announcements.course = course.course_name
+								AND course.professor_id = '$ufid'
 								ORDER BY time DESC";
 					$conn=connect();
 					$stid = oci_parse($conn,$query);

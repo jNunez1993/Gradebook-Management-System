@@ -2,7 +2,6 @@ $(document).ready(function(){
 	$('ul#side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
-
 		var menu_url = 'includes/changeCourseGrade.php';
 		if (menu_item == "Assignments") {
 			menu_url = 'includes/changeCourseAssignments.php';
@@ -26,17 +25,6 @@ $(document).ready(function(){
 		$(".modal-content .assignment_type").html( '<object type="application/pdf" data="img/' + assignment_type + '.pdf "width="100%" height="500"></object>' );
 		$(".modal-content .assignment_name").html( assignment_name );
 	});
-	
-	$('button#add_Announce').click(function() {
-		alert("clicked");
-		var post = $.post( "addAnounce.php", function() {
-			console.log("hello");
-			alert( "success" );
-		});
-
-	});
-
-
 
 //Main page
 	$('ul#main_side_menu li a').click( function(){
@@ -48,6 +36,26 @@ $(document).ready(function(){
 			menu_url = 'includes/changeHomeCourse.php';
 		}else if (menu_item == "Grade") {
 			menu_url = 'includes/changeHomeGrade.php';
+		}
+		$.ajax({ 
+			url: menu_url,
+			data: {type: menu_item },
+			type: 'post',
+			success: function(output) {
+				$('#main_body').html(output);
+            }
+		});
+		return false;
+	});
+	$('ul#professor_side_menu li a').click( function(){
+		var menu_item = $(this).attr('id');
+		//$('#main_body').load('course/' + menu_item + '.php' );
+		console.log(menu_item);
+		var menu_url = 'includes/profHomeAnn.php';
+		if (menu_item == "Course") {
+			menu_url = 'includes/changeHomeCourse.php';
+		}else if (menu_item == "Grade") {
+			menu_url = 'includes/profHomeGrade.php';
 		}
 		$.ajax({ 
 			url: menu_url,
