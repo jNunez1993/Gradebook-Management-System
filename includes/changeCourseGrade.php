@@ -15,7 +15,6 @@ if(isset($_POST['type'])){
 		WHERE grade.student_ID = '$ufid' 
 		AND grade.course_name = '$course' 
 		ORDER BY assignment_name ASC "; 
-	
 //NEEDS TO BE GENERIC
 
 		$stid = oci_parse($conn,$query);
@@ -25,21 +24,28 @@ if(isset($_POST['type'])){
 		echo '	
 					<th> Assignment Name </th>
 					<th> Assignment Grade </th>
+					<th> Class Average </th>
 			';
 		$counter = 1;
-		while (($row = oci_fetch_row($stid)) != false){
+		while (($row = oci_fetch_row($stid)) != false) {
 			echo 	'<tr>
 						<td> ' . $row[0]  . '</td> 
-						<td> ' . $row[1]  . '</td>				
-					</tr>';
+						<td> ' . $row[1]  . '</td>';
+			foreach ($row as $item) {
+			$query_average = "	SELECT distinct TRUNC(AVG(grade),2) 
+								AS average FROM grade 
+								where grade.course_name = '$course' 
+								AND grade.assignment_name = '$item' ";
+			$avgID = oci_parse($conn,$query_average);
+			oci_execute($avgID);
+			$average = oci_fetch_row($avgID);
+			echo '<td>'. $average[0] . '</td>';
 			$counter++;
-		}
+			}
+			echo '</tr>';
+	}
 		echo '</table>';
 
-	}else{
-		echo("Action works! " . $_POST['type']);
 	}
-
-
 }
 ?>

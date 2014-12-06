@@ -52,7 +52,6 @@
 				</h1>
 
 				<div id ="main_course_body">
-					
 				</div>
 			</div>
     	</div>
