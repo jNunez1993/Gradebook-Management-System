@@ -39,7 +39,7 @@
 				
 		    </ul>
             <ul class="nav navbar-nav" style="float: right">
-				<li><a href ="#" style = "float:right;">Welcome '. $fullname[0] . ','. $fullname[1] . ' </a></li>
+				<li><a href ="#" style = "float:right;">Welcome '. $fullname[1] . ' '. $fullname[0] . ' </a></li>
           	</ul>
 	    </div>
     </nav>';
