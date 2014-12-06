@@ -18,41 +18,15 @@
 <?php
 	$username = $_SESSION["username"];
 	$conn=connect();
-	$query = "SELECT distinct UFID FROM student WHERE student.gatorLink = '$username'";
-	$stid=oci_parse($conn,$query);
-	oci_execute($stid);
-	$row=oci_fetch_row($stid);
-	$_SESSION["UFID"] = $row[0];
-
-	if ($_SESSION["viewType"] == "student") {
-		$query="SELECT distinct course_name FROM student,course WHERE student.UFID=course.student_ID AND student.gatorLink='$username'";
+	if ($_SESSION["viewType"] == "professor") {
+		$query="SELECT distinct course_name FROM professor,course WHERE professor.UFID=course.professor_ID AND professor.gatorLink='$username'";
 	}
 	$stid=oci_parse($conn,$query);
 	oci_execute($stid);
-?>
+?> 
+<?php include 'navbar.php' ?>
 
-	<nav class="navbar navbar-default navbar-fixed" role="navigation">
-	    <div class="container-fluid">
-	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
-		    <ul class="nav navbar-nav">
-			    <li><a href="#">Home</a></li>
-			    <?php
-						while (($row=oci_fetch_row($stid))!=false){
-					        foreach($row as $item){
-								echo  
-								'<li>
-									<a href="course.php?course=' . $item . ' ">' . $item . '</a>
-								</li>';
-							}
-					    }
-				?>
-				<li><a href="logout.php" >Logout</a></li>
-		    </ul>
-	    </div>
-    </nav>
-    
-    <!--SIDE MENU-->
-    <div class ="container-fluid">
+	<div class ="container-fluid">
     	<div class ="row">
        		<div class = "col-md-3">
 	    		<ul class="nav nav-pills nav-stacked" id = "main_side_menu">
@@ -62,6 +36,9 @@
 				</ul>
 			</div>
 			<div class = "col-md-7">
+				<div id = "add_announce">
+					<a type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addAnnounce"> Add Announcement</a>
+				</div>
 				<div id ="main_body">
 					<div class ="list-group">
 	    				<h4 class="list-group-item-heading">Announcements</h4>
@@ -98,7 +75,36 @@
 		</div>
     </div>
 
+	<!--MODAL -->
+	<div class="modal fade" id="addAnnounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <form role="form">
+	      	<div class="modal-body">
+				  <div class="form-group">
+				    <label for="announceTitle">Title of the Announcment</label>
+				    <input type = "text" class="form-control" id="announceTitle" placeholder="Title">
+				  </div>
+				  <div class="form-group">
+				    <label for="announceMessage">Message</label>
+				    <input class="form-control" id="announceMessage" placeholder="Message">
+				  </div>
+	     	 </div>
+	      
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="submit" id = "add_announce" class="btn btn-primary">Add Announcement</button>
+		      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>
+	<!-- END OF MODAL -->
+
 </body>
+
 </html>
-
-

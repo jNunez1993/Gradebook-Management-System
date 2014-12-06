@@ -50,6 +50,7 @@
 			<div class = "col-md-5" id = "main_section">
 				<h1> Place Holder for <?php echo $course ?> 
 				</h1>
+
 				<div id ="main_course_body">
 					
 				</div>

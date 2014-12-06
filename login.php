@@ -18,7 +18,7 @@
 	if(check_professor($username,$password)==true){
 	//$flag1=true;
 		$_SESSION["viewType"] = "professor"; 
-		header("location:gatorLearning.php");
+		header("location:professorLearning.php");
 	}
 	if($flag==false && $flag1==false){
 		header("refresh: 3; index.html");

@@ -20,18 +20,21 @@ $(document).ready(function(){
 		return false;
 	});
 
-
-
-
-
 	$(document).on("click", ".view_assignment_modal", function () {
 		var assignment_type = $(this).attr('data-id');
-		console.log(assignment_type);
 		var assignment_name = $(this).attr('data-name');
 		$(".modal-content .assignment_type").html( '<object type="application/pdf" data="img/' + assignment_type + '.pdf "width="100%" height="500"></object>' );
 		$(".modal-content .assignment_name").html( assignment_name );
 	});
+	
+	$('button#add_Announce').click(function() {
+		alert("clicked");
+		var post = $.post( "addAnounce.php", function() {
+			console.log("hello");
+			alert( "success" );
+		});
 
+	});
 
 
 
