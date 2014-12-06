@@ -16,7 +16,14 @@ include ('functions.php');
 			';
 	while (($row=oci_fetch_row($stid))!=false){
 		foreach($row as $item){
+<<<<<<< HEAD:includes/changeMainGrade.php
 			$query_average = "SELECT AVG(grade) AS average FROM grade where grade.course_name = '$item' AND grade.assignment_type = 'Exam' ";
+=======
+			$query_average = "	SELECT AVG(grade) 
+								AS average FROM grade 
+								where grade.course_name = '$item' 
+								AND grade.assignment_type = 'Exam' ";
+>>>>>>> FETCH_HEAD:includes/changeHomeGrade.php
 			$avgID = oci_parse($conn,$query_average);
 			oci_execute($avgID);
 			$average = oci_fetch_row($avgID);

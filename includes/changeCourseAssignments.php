@@ -7,13 +7,18 @@ if(isset($_POST['type'])){
 	$course = $_SESSION["Course"];
 	$conn= connect();
 	
-	$query = "SELECT distinct assignment_name, assignment_type FROM grade,course WHERE grade.student_ID = '$ufid' AND grade.course_ID = '$course' ORDER BY assignment_name ASC "; 
+	$query = "SELECT distinct assignment_name, assignment_type 
+	FROM grade,course 
+	WHERE grade.student_ID = '$ufid' 
+	AND grade.course_name = '$course' 
+	ORDER BY assignment_name ASC "; 
 	
 	$stid = oci_parse($conn,$query);
 	oci_execute($stid);
 
 	echo '<table class = "table table-hover table-condensed">';
-
+	echo '<th> Assignment Name </th>
+			<th></th>';
 	while (($row = oci_fetch_row($stid)) != false){
 		echo 	'<tr>
 					<td> ' . $row[0]  . '</td> 
