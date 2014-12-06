@@ -1,9 +1,11 @@
 $(document).ready(function(){
-	$('ul#side_menu li a').click( function(){
+	$('ul#course_side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
-		var menu_url = 'includes/changeCourseGrade.php';
-		if (menu_item == "Assignments") {
+		var menu_url = "";
+		if (menu_item == "Grades") {
+			menu_url = 'includes/changeCourseGrade.php';
+		}else if (menu_item == "Assignments") {
 			menu_url = 'includes/changeCourseAssignments.php';
 		}else if (menu_item == "Students") {
 			menu_url = 'includes/changeCourseStudents.php';
@@ -34,7 +36,7 @@ $(document).ready(function(){
 		var menu_url = 'includes/changeHomeAnnouncements.php';
 		if (menu_item == "Course") {
 			menu_url = 'includes/changeHomeCourse.php';
-		}else if (menu_item == "Grade") {
+		}else if (menu_item == "Grades") {
 			menu_url = 'includes/changeHomeGrade.php';
 		}
 		$.ajax({ 
@@ -48,14 +50,14 @@ $(document).ready(function(){
 		return false;
 	});
 // professor view
-	$('ul#professor_side_menu li a').click( function(){
+	$('ul#prof_main_side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
 		console.log(menu_item);
 		var menu_url = 'includes/profHomeAnn.php';
 		if (menu_item == "Course") {
 			menu_url = 'includes/profHomeCourse.php';
-		}else if (menu_item == "Grade") {
+		}else if (menu_item == "Grades") {
 			menu_url = 'includes/profHomeGrade.php';
 		}
 		$.ajax({ 
@@ -69,6 +71,28 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$(document).on("click", "#prof_course_side_menu li a", function () {	
+		var menu_item = $(this).attr('id');
+		var menu_url = "";
+		console.log(menu_item);
+		if (menu_item == "Grades") {
+			menu_url = 'includes/profGradebook.php';
+		}
+		else if (menu_item == "Assignments") {
+			menu_url = 'includes/changeCourseAssignments.php';
+		}else if (menu_item == "Students") {
+			menu_url = 'includes/changeCourseStudents.php';
+		}
+		$.ajax({ 
+			url: menu_url,
+			data: {type: menu_item },
+			type: 'post',
+			success: function(output) {
+				$('#main_course_body').html(output);
+            }
+		});
+		return false;
+	});
 	$(document).on("click", ".view_gradeBook", function () {		
 		var menu_item = $(this).attr('id');
 		$.ajax({ 

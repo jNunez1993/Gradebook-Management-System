@@ -21,7 +21,7 @@
 	$username = $_SESSION["username"];
 	$course = $_GET['course'];
 	$conn= connect();
-	$query = "SELECT student_id FROM student,course WHERE student.UFID = course.student_ID AND student.gatorLink = '$username'";
+	$query = "SELECT UFID FROM professor WHERE professor.gatorLink = '$username'";
 	$stid = oci_parse($conn, $query);
 	oci_execute($stid, OCI_DEFAULT);
 	$row = oci_fetch_array($stid);
@@ -35,7 +35,7 @@
 
 <!-- side menu -->
        		<div class = "col-md-3">
-	    		<ul id = "course_side_menu" class="nav nav-pills nav-stacked">
+	    		<ul id = "prof_course_side_menu" class="nav nav-pills nav-stacked">
 	  				<li role="presentation"><a href="#">Home</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Grades">Gradebook </a>
 	 	 			</li>

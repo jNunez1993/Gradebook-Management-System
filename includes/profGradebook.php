@@ -3,7 +3,11 @@ include ('functions.php');
 //to view all students in the class. 
 	$conn= connect();
 	$username = $_SESSION["username"];
-	$course = $_POST['type'];
+	if ($_POST['type'] == "Grades") {
+		$course = $_SESSION["Course"];
+	}else {
+		$course = $_POST['type'];
+	}
 	$query = "	SELECT student.UFID, student.lname, student.fname 
 				FROM student,course,professor  
 				WHERE student.UFID = course.student_ID

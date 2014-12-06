@@ -4,17 +4,17 @@
 	$conn=connect();
 	if ($_SESSION["viewType"] == "professor") {
 		$query="SELECT distinct course_name FROM professor,course WHERE professor.UFID=course.professor_ID AND professor.gatorLink='$username'";
-		$html = "professorLearning.php";
+		$html = "profLearning.php";
+		$course = "profCourse.php";
 	}
 	if ($_SESSION["viewType"] == "student") {
 		$query="SELECT distinct course_name FROM student,course WHERE student.UFID=course.student_ID AND student.gatorLink='$username'";
 		$html = "gatorLearning.php";
+		$course = "course.php";
 	}
 	$stid=oci_parse($conn,$query);
 	oci_execute($stid);
-?>
 
-<?php
 	echo '
 	<nav class="navbar navbar-default navbar-fixed" role="navigation">
 	    <div class="container-fluid">
@@ -26,7 +26,7 @@
 					        foreach($row as $item){
 								echo  
 								'<li>
-									<a href="course.php?course=' . $item . ' ">' . $item . '</a>
+									<a href="'. $course .'?course=' . $item . ' ">' . $item . '</a>
 								</li>';
 							}
 					    }

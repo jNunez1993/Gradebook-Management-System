@@ -58,7 +58,7 @@
 	    		<ul class="nav nav-pills nav-stacked" id = "main_side_menu">
 	  				<li role="presentation"><a href="#" id = "Home">Home</a></li>
 	  				<li role="presentation"><a href="#" id = "Course">Courses</a></li>
-	 	 			<li role="presentation"><a href="#" id = "Grade">Grades</a></li>
+	 	 			<li role="presentation"><a href="#" id = "Grades">Grades</a></li>
 				</ul>
 			</div>
 			<div class = "col-md-7">
