@@ -11,6 +11,7 @@
 <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
+
 </head>
 
 <body>
@@ -28,8 +29,26 @@
 		</div>
 		</div>
 	</div>  
+	
+	<?php 
+	$conn=connect();
+	$query= "select sum(num_rows) from (select table_name, num_rows from user_tables)";
+	$stid=oci_parse($conn,$query);
+	oci_execute($stid);
+	$row=oci_fetch_array($stid);
+	$number = $row[0];
+	?>
+	
+	<form action="index.php" method="post">
+	<button name="tuples" type="submit" >Amount of tuples</button>
+	</form>
+	
+	<?PHP
+	if (isset($_POST['tuples'])) {
+	echo $number;
+	
+	}
+	?>
 <!-- end Login -->
-
 </body>
-
 </html>
