@@ -16,12 +16,13 @@ include ('functions.php');
 			';
 	while (($row=oci_fetch_row($stid))!=false){
 		foreach($row as $item){
-			$query_average = "SELECT AVG(grade) AS average FROM grade where grade.course_ID = '$item' AND grade.assignment_type = 'Exam' ";
+			$query_average = "SELECT AVG(grade) AS average FROM grade where grade.course_name = '$item' AND grade.assignment_type = 'Exam' ";
 			$avgID = oci_parse($conn,$query_average);
 			oci_execute($avgID);
 			$average = oci_fetch_row($avgID);
 			echo '<tr>';
 			echo '<td>' . $row[0] . '</td>';
+			echo '<td>' . $row[1] . '</td>';
 			echo '<td>' . $average[0] . '</td>';
 			echo '</tr>';  
 			//oci_result($avgID, 'average')
