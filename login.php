@@ -21,7 +21,7 @@
 		header("location:profLearning.php");
 	}
 	if($flag==false && $flag1==false){
-		header("refresh: 3; index.html");
+		header("refresh: 3; index.php");
 		echo "Invalid Credentials. You will be redirected in 3 seconds.";
 	}
 
