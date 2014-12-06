@@ -31,25 +31,7 @@
 	oci_execute($stid);
 ?>
 
-	<nav class="navbar navbar-default navbar-fixed" role="navigation">
-	    <div class="container-fluid">
-	    	<a class="navbar-brand" href="#">CIS 4301 PROJECT</a>
-		    <ul class="nav navbar-nav">
-			    <li><a href="#">Home</a></li>
-			    <?php
-						while (($row=oci_fetch_row($stid))!=false){
-					        foreach($row as $item){
-								echo  
-								'<li>
-									<a href="course.php?course=' . $item . ' ">' . $item . '</a>
-								</li>';
-							}
-					    }
-				?>
-				<li><a href="logout.php" >Logout</a></li>
-		    </ul>
-	    </div>
-    </nav>
+<?php include 'navbar.php' ?>
     
     <!--SIDE MENU-->
     <div class ="container-fluid">

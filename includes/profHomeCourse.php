@@ -4,7 +4,7 @@ include ('functions.php');
 	$conn= connect();
 	
 	$query = "SELECT DISTINCT course.course_name, professor.fname, professor.lname 
-	FROM course, professor WHERE course.student_ID = '$ufid' and course.professor_ID = professor.UFID"; 
+	FROM course, professor WHERE course.professor_ID = '$ufid' and course.professor_ID = professor.UFID"; 
 	
 	$stid = oci_parse($conn,$query);
 	oci_execute($stid);
@@ -15,7 +15,6 @@ include ('functions.php');
 	while (($row=oci_fetch_row($stid))!=false){
 			echo '<tr>';
 			echo '<td>' . $row[0] . '</td>';
-			echo '<td>' . $row[1] . ',' . $row[2] . '</td>';
 			echo '</tr>';  
 	}
 	echo '</table>';

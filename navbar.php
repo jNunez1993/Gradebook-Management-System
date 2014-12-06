@@ -6,14 +6,18 @@
 		$query="SELECT distinct course_name FROM professor,course WHERE professor.UFID=course.professor_ID AND professor.gatorLink='$username'";
 		$html = "profLearning.php";
 		$course = "profCourse.php";
+		$name = "SELECT fname, lname FROM professor WHERE professor.gatorLink = '$username'"; 
 	}
 	if ($_SESSION["viewType"] == "student") {
 		$query="SELECT distinct course_name FROM student,course WHERE student.UFID=course.student_ID AND student.gatorLink='$username'";
 		$html = "gatorLearning.php";
 		$course = "course.php";
+		$name = "SELECT fname, lname FROM student WHERE student.gatorLink = '$username'"; 
 	}
 	$stid=oci_parse($conn,$query);
 	oci_execute($stid);
+	$nameID = oci_parse($conn,$name);
+	oci_execute($nameID);
 
 	echo '
 	<nav class="navbar navbar-default navbar-fixed" role="navigation">
@@ -30,8 +34,13 @@
 								</li>';
 							}
 					    }
+					 $fullname = oci_fetch_row($nameID);
 	echo '		<li><a href="logout.php" >Logout</a></li>
+				
 		    </ul>
+            <ul class="nav navbar-nav" style="float: right">
+				<li><a href ="#" style = "float:right;">Welcome '. $fullname[0] . ','. $fullname[1] . ' </a></li>
+          	</ul>
 	    </div>
     </nav>';
 
