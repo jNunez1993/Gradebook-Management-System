@@ -35,11 +35,12 @@
 							}
 					    }
 					 $fullname = oci_fetch_row($nameID);
-	echo '		<li><a href="logout.php" >Logout</a></li>
+	echo '		
 				
 		    </ul>
             <ul class="nav navbar-nav" style="float: right">
-				<li><a href ="#" style = "float:right;">Welcome '. $fullname[0] . ','. $fullname[1] . ' </a></li>
+				<li><a href ="#" style = "float:right;">Welcome '. $fullname[0] . ' '. $fullname[1] . ' </a></li>
+				<li><a href="logout.php" >Logout</a></li>
           	</ul>
 	    </div>
     </nav>';
