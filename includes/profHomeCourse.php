@@ -19,7 +19,7 @@ include ('functions.php');
 			echo '<tr>';
 			echo '<td>' . $row[0] . '</td>';
 			echo '<td> 
-			<a href = "profCourse.php?course='. $row[0] .' " class = "btn btn-warning" id = "' . $row[0] . '">
+			<a href = "profCourse.php?course='. $row[0] .' " class = "btn btn-primary" id = "' . $row[0] . '">
 			View Course Main Page </a> </td>';
 			echo '</tr>';  
 	}

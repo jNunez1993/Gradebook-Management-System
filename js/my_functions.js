@@ -79,20 +79,24 @@ $(document).ready(function(){
 		console.log(menu_item);
 		if (menu_item == "Grades") {
 			menu_url = 'includes/profGradebook.php';
-		}
-		else if (menu_item == "Assignments") {
+		}else if (menu_item == "Assignments") {
 			menu_url = 'includes/changeCourseAssignments.php';
 		}else if (menu_item == "Students") {
 			menu_url = 'includes/changeCourseStudents.php';
 		}
-		$.ajax({ 
-			url: menu_url,
-			data: {type: menu_item },
-			type: 'post',
-			success: function(output) {
-				$('#main_course_body').html(output);
-            }
-		});
+		if (menu_item == "Home"){
+			console.log("hello");
+			window.location.replace("http://localhost/Gradebook-Management-system/profLearning.php");
+		}else{
+			$.ajax({ 
+				url: menu_url,
+				data: {type: menu_item },
+				type: 'post',
+				success: function(output) {
+					$('#main_course_body').html(output);
+	            }
+			});
+		}
 		return false;
 	});
 	$(document).on("click", ".view_gradeBook", function () {		
