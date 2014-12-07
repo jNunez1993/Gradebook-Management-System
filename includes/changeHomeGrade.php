@@ -17,7 +17,7 @@ include ('functions.php');
 			';
 	while (($row=oci_fetch_row($stid))!=false){
 		foreach($row as $item){
-			$exam_average = "	SELECT AVG(grade) 
+			$exam_average = "	SELECT TRUNC(AVG(grade),2)
 								AS average FROM grade 
 								where grade.course_name = '$item' 
 								AND grade.assignment_type = 'Exam' ";
@@ -25,7 +25,7 @@ include ('functions.php');
 			oci_execute($exam);
 			$avgExam = oci_fetch_row($exam);
 
-			$assign_average = "	SELECT TRUNC(AVG(grade)) 
+			$assign_average = "	SELECT TRUNC(AVG(grade),2) 
 								AS average FROM grade 
 								where grade.course_name = '$item' 
 								AND grade.assignment_type = 'Assignment' ";

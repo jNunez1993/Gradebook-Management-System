@@ -1,6 +1,6 @@
 <?php
 include ('functions.php');
-//to view all students in the class. 
+//to view all students in the class.
 	$conn= connect();
 	$username = $_SESSION["username"];
 	if ($_POST['type'] == "Grades") {
