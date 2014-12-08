@@ -11,7 +11,8 @@ if(isset($_POST['type'])){
 	$query = 	"SELECT DISTINCT student.fname,student.lname,count(*) over () totalRows 
 				FROM course,student
 				WHERE  course.course_name = '$course' 
-				AND course.student_ID = student.UFID"; 
+				AND course.student_ID = student.UFID
+				ORDER BY student.lname ASC"; 
 
 //NEEDS TO BE GENERIC
 	$stid = oci_parse($conn,$query);
@@ -19,15 +20,15 @@ if(isset($_POST['type'])){
 
 	echo '<table class = "table table-hover table-condensed">';
 	echo '	<tr>
-				<th> First Name </th>
-				<th> Last Name </th>	
+				<th> Last Name </th>
+				<th> First Name </th>	
 			</tr>
 	';
 	$totalRows = 0;
 	while (($row = oci_fetch_row($stid)) != false){
 		echo 	'<tr>
-					<td> ' . $row[0]  . '</td> 
 					<td> ' . $row[1]  . '</td> 
+					<td> ' . $row[0]  . '</td> 
 				</tr>';
 		$totalRows++;
 

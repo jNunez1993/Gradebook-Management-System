@@ -1,0 +1,59 @@
+1. Do males score higher than females on exams and assignments in each class?
+
+//Gets the average score for males in the class and assignment since even id is male
+SELECT Distinct TRUNC(AVG(grade),2) 
+AS male_average FROM grade 
+where grade.course_name = '$course' 
+AND grade.assignment_name = '$item'
+AND grade.student_id LIKE '%0'
+OR grade.student_id LIKE '%2'
+OR grade.student_id LIKE '%4'
+OR grade.student_id LIKE '%6'
+OR grade.student_id LIKE '%8';
+
+//Gets the average score for females in the class and assignment since odd id is female
+SELECT Distinct TRUNC(AVG(grade),2) 
+AS female_average FROM grade 
+where grade.course_name = '$item' 
+AND grade.assignment_name = '$course'
+AND grade.student_id LIKE '%1'
+OR grade.student_id LIKE '%3'
+OR grade.student_id LIKE '%5'
+OR grade.student_id LIKE '%7'
+OR grade.student_id LIKE '%9';
+//compare the two and see which one is better, perhaps makes a table, or we can display differences between final grade in courses, which I would need to make a query for.
+
+2. Is the balance of males to females different balanced in every class, as in do the different sexes sign up for specific courses?
+
+//displaying info in some sort of tablw could be beneficial.
+SELECT Distinct Count(*)
+AS males_in_course FROM grade 
+where grade.course_name = '$course' 
+AND grade.student_id LIKE '%0'
+R grade.student_id LIKE '%2'
+OR grade.student_id LIKE '%4'
+OR grade.student_id LIKE '%6'
+OR grade.student_id LIKE '%8';
+
+SELECT Distinct Count(*)
+AS females_in_course FROM grade 
+where grade.course_name = 'ABE2062' 
+AND grade.student_id LIKE '%1'
+R grade.student_id LIKE '%3'
+OR grade.student_id LIKE '%5'
+OR grade.student_id LIKE '%7'
+OR grade.student_id LIKE '%9';
+
+3. Average in each assignment for each class, each student? 
+
+SELECT distinct TRUNC(AVG(grade),2) 
+AS average FROM grade 
+where grade.course_name = '$course' 
+AND grade.assignment_name = '$item'
+
+4. Comparison between average grade and amount of students in class, as in do more students mean a higher or lower average.
+
+SELECT distinct COUNT(*) as Total_Number_of_Students, TRUNC(AVG(grade),2) as Average_Student_Grade
+FROM grade 
+where grade.course_name = '$course';
+//Need to figure out a way to output accurate average, as in weight of assingments
