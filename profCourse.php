@@ -47,7 +47,7 @@
 			</div>
 <!--Main Body-->
 
-			<div class = "col-md-5" id = "main_section">
+			<div class = "col-md-6" id = "main_section">
 				<h1> Place Holder for <?php echo $course ?> 
 				</h1>
 

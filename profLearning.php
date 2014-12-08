@@ -44,45 +44,23 @@
 			</div>
 			<div class = "col-md-7">
 				<div id ="main_body">
-					<div class = "row" id = "add_announce">
-						<a type="button" style = "float : right;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addAnnounce"> Add Announcement</a>
-					</div>
-
-					<div class ="list-group row">
-	    				<h4 class="list-group-item-heading">Announcements</h4>
-						<div id = "Announcements">
-		    				<table class="table table-striped">
-		    					<tr> <th> Date and Time </th> <th> Course </th> <th> Message </th></tr>
-		    				<?php 
-		    					$ufid = $_SESSION["UFID"];
-		    					$query = "SELECT distinct time, course, message FROM ANNOUNCEMENTS, Course
-								WHERE Announcements.course = course.course_name
-								AND course.professor_id = '$ufid'
-								ORDER BY time DESC";
-		    					$conn=connect();
-		    					$stid = oci_parse($conn,$query);
-								oci_execute($stid);
-								while(($row = oci_fetch_array($stid)) != false) {
-									echo '<tr> ';
-									echo '<td> ' . $row[0] . '</td>';
-									echo '<td> ' . $row[1] . '</td>';
-									echo '<td> ' . $row[2] . '</td>';
-									echo '</tr>';
-								}
-
-		    				?>
-		    				</table>
-
-		    			</div>
-		    		</div>
+					<script type = "text/javascript"> 
+					$( document ).ready(function() {
+						$.ajax({ 
+							url: 'includes/profHomeAnn.php',
+							data: {type: 'Home'},
+							type: 'post',
+							success: function(output) {
+								$('#main_body').html(output);
+				            }
+						}); 
+					});
+					</script>
 	    		</div>
-
     		</div>
 
 		</div>
     </div>
-
-	<!--MODAL -->
 	<div class="modal fade" id="addAnnounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -90,7 +68,7 @@
 	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
 	      </div>
-	      <form role="form" action="includes/addAnnounce.php" method="post">
+	      <form role="form" action="addAnnounce.php" method="post">
 	      	<div class="modal-body">
 				  <div class="form-group">
 				    <label for="announceTitle">Class</label>
@@ -111,7 +89,6 @@
 	  </div>
 	</div>
 	<!-- END OF MODAL -->
-
 </body>
 
 </html>

@@ -80,7 +80,7 @@ $(document).ready(function(){
 		if (menu_item == "Grades") {
 			menu_url = 'includes/profGradebook.php';
 		}else if (menu_item == "Assignments") {
-			menu_url = 'includes/changeCourseAssignments.php';
+			menu_url = 'includes/profAssignments.php';
 		}else if (menu_item == "Students") {
 			menu_url = 'includes/changeCourseStudents.php';
 		}else if (menu_item == "Home"){
