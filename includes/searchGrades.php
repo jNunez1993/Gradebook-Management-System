@@ -30,7 +30,7 @@ oci_execute($stid1);
 if (empty($studentInfo[0])) {
 	echo '<div class="alert alert-warning" role="alert">No students exist with that UFID in your class</div>';
 }else{
-	echo '<table class= "table table-striped table-bordered table-hover" id = "edittable">
+	echo '<table class= "table table-striped table-bordered table-hover">
 	 		<thead>
 				<tr>
 					<th colspan="1" rowspan="1" style="width: 180px;" tabindex="0">Stduent UFID</th>

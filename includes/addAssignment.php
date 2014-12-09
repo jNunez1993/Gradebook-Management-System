@@ -2,7 +2,6 @@
 	include('functions.php');
 
 if(isset($_POST['submit'])) {	
-	echo 'Hello';
 	$conn = connect();
 	$course = $_SESSION["Course"];
 

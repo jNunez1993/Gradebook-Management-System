@@ -16,7 +16,6 @@ if(isset($_POST['type'])){
 	FROM grade,course 
 	WHERE grade.professor_ID = '$ufid' 
 	AND grade.course_name = '$course' 
-	AND grade.student_id = '$studentRow[0]'
 	ORDER BY assignment_name ASC "; 
 	
 	$stid = oci_parse($conn,$query);
@@ -70,7 +69,7 @@ if(isset($_POST['type'])){
 	      <form role="form" action="includes/addAssignment.php" method="post">
 	      	<div class="modal-body">
 	      		<div class="form-group">
-				    <label for="announceMessage">Message</label>
+				    <label for="announceMessage">Assignment Name</label>
 				    <input class="form-control" name="assignmentName" placeholder="Assignment Name">
 			    </div>
 				  <div class="form-group">

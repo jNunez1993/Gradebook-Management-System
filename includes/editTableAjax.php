@@ -2,8 +2,8 @@
 include ('functions.php');
 
 	if (isset($_GET['edit'])) {
-		//$course = $_SESSION['Course'];
-		$course = "ABE2062";
+		$course = $_SESSION['Course'];
+		//$course = "ABE2062";
 		$assignName = $_GET['column'];
 		$studentUFID = $_GET['id'];
 		$newValue = $_GET["newValue"];

@@ -21,9 +21,9 @@
 	$stid1=oci_parse($conn,$query1);
 	oci_execute($stid1); 
 	
-	echo '<table class= "table table-striped table-bordered table-hover" id = "editTable">';
+	/*echo '<table class= "table table-striped table-bordered table-hover" id = "editTable">';
 	echo "<thead>";
-	echo	"<tr>";
+*/	echo	"<tr>";
 	echo	'<th colspan="1" rowspan="1" style="width: 180px;" tabindex="0">Student_ID</th>';
 	echo	'<th colspan="1" rowspan="1" style="width: 220px;" tabindex="0">Last Name</th>';
 	echo	'<th colspan="1" rowspan="1" style="width: 288px;" tabindex="0">First Name</th>';
@@ -55,6 +55,6 @@
 		echo "</tr>\n";
 	}
 	echo "	</tbody>";
-	echo "</table>\n";
-    						?>
+	//echo "</table>\n";
+ ?>
 			    	
