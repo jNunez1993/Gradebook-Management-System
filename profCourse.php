@@ -12,6 +12,7 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/my_functions.js"></script>
+<script src = "js/edit.js"></script>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
 <!-- side menu -->
        		<div class = "col-md-3">
 	    		<ul id = "prof_course_side_menu" class="nav nav-pills nav-stacked">
-	  				<li role="presentation"><a href="profLearning.php" id ="Home">Home</a></li>
+	  				<li role="presentation"><a href="#" id ="Home" course = "$courses">Home</a></li>
 	 	 			<li role="presentation"><a href="#" id = "Grades">Gradebook </a>
 	 	 			</li>
 	 	 			<li role="presentation"><a href="#" id = "Assignments">Assignments</a></li>
@@ -52,6 +53,12 @@
 				</h1>
 
 				<div id ="main_course_body">
+					<table id = "editTable" class ="table">
+				    	<tbody>
+				    		<?php include ('includes/editTable.php') ?>
+				    	</tbody>
+			   		</table>
+
 				</div>
 			</div>
     	</div>

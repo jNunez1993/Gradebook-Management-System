@@ -57,7 +57,7 @@ if(isset($_POST['type'])){
 	}
 	echo '
 	<div class = "row" id = "add_assignment">
-		<a type="button" style = "float : right;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addAssignment"> Add Assignment</a>
+		<a type="button" style = "float : right;" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addAssignment"> Add Assignment</a>
 	</div>';
 	echo '    <!--MODAL -->
 	<div class="modal fade" id="addAssignment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

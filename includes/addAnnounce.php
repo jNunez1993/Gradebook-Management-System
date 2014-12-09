@@ -2,13 +2,13 @@
 	include('functions.php');
 
 if(isset($_POST['submit'])) {
-	if (isset($_POST['announceTitle']) && isset($_POST['announceMessage'])) {
+	if (isset($_POST['profClass']) && isset($_POST['announceMessage'])) {
 	
 		echo 'Hello';
 		$conn = connect();
 
 		$message = $_POST['announceMessage'];
-		$class = $_POST['announceTitle'];
+		$class = $_POST['profClass'];
 		echo ($message);
 		$query = "	INSERT INTO announcements
 					VALUES(current_timestamp, '$message' ,'$class', inc.nextval)"; 

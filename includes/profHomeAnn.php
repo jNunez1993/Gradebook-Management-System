@@ -35,14 +35,26 @@ echo '    <!--MODAL -->
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	        <h4 class="modal-title" id="myModalLabel">Modal PHP</h4>
 	      </div>
 	      <form role="form" action="includes/addAnnounce.php" method="post">
 	      	<div class="modal-body">
-				  <div class="form-group">
-				    <label for="announceTitle">Class</label>
-				    <input type = "text" class="form-control" name="announceTitle" placeholder="Title">
-				  </div>
+				  	<div class="form-group">
+				    	<label for="profClass">Class</label>
+						<select class="form-control" name = "profClass"> ';
+						$queryClass ="SELECT distinct course_name 
+									  FROM course 
+									  WHERE course.professor_id = '$ufid'";
+						$stidClass = oci_parse($conn,$queryClass);
+						oci_execute($stidClass);
+						while (($row = oci_fetch_row($stidClass)) != false) {
+							echo '<option value="'. $row[0] .'">'. $row[0] .'</option> ';
+
+						}
+						    
+						  
+			echo   		'</select>				  
+					</div>
 				  <div class="form-group">
 				    <label for="announceMessage">Message</label>
 				    <input class="form-control" name="announceMessage" placeholder="Message">
