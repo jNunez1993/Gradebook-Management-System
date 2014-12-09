@@ -18,7 +18,7 @@ if(isset($_POST['type'])){
 
 	echo '<table class = "table table-hover table-condensed">';
 	echo '<th> Assignment Name </th>
-			<th></th>';
+			<th>View</th>';
 	while (($row = oci_fetch_row($stid)) != false){
 		echo 	'<tr>
 					<td> ' . $row[0]  . '</td> 

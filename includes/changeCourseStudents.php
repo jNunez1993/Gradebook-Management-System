@@ -8,11 +8,15 @@ if(isset($_POST['type'])){
 	$course = $_SESSION["Course"];
 	$conn= connect();
 	
-	$query = 	"SELECT DISTINCT student.fname,student.lname,count(*) over () totalRows 
-				FROM course,student
-				WHERE  course.course_name = '$course' 
-				AND course.student_ID = student.UFID
-				ORDER BY student.lname ASC"; 
+	$query = "SELECT * from (
+				select a.*, ROWNUM minNum from (
+	  				SELECT DISTINCT student.fname,student.lname 
+						FROM course,student
+						WHERE  course.course_name = '$course' 
+						AND course.student_ID = student.UFID
+						ORDER BY student.lname ASC
+					) a where rownum <= 13 
+			 	)where minNum >= 11";
 
 //NEEDS TO BE GENERIC
 	$stid = oci_parse($conn,$query);
