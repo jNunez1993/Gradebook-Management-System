@@ -63,13 +63,7 @@
 		</div>
    
 		<div class ="row">
-			<div class = "col-md-3">
-				<table id = "editTable" class ="table">
-			    	<tbody>
-			    		<?php include ('includes/editTable.php') ?>
-			    	</tbody>
-			    </table>
-		    <div>
+		    	
 		</div>
 
 

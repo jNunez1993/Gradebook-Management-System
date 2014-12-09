@@ -49,10 +49,19 @@
 <!--Main Body-->
 
 			<div class = "col-md-6" id = "main_section">
-				<h1> Place Holder for <?php echo $course ?> 
-				</h1>
+				<h1> Place Holder for <?php echo $course ?> </h1>
 
+					<form id = "searchFormStudents" class = "form-inline" role="form" action = "includes/search.php" method = "post"> 
+						<input type="text" class="form-control" name = "UFID" placeholder="Search with UFID">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<form id = "searchFormGrades" class = "form-inline" role="form" action = "includes/search.php" method = "post"> 
+						<input type="text" class="form-control" name = "UFID" placeholder="Search with UFID">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
 				<div id ="main_course_body">
+					
+					<h3> Edit Gradebook! </h3>
 					<table id = "editTable" class ="table">
 				    	<tbody>
 				    		<?php include ('includes/editTable.php') ?>

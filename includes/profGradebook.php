@@ -8,15 +8,15 @@ include ('functions.php');
 	}else {
 		$course = $_POST['type'];
 	}
-							$query =		"SELECT * from (
-									select a.*, ROWNUM minNum from (
-						  				SELECT student.UFID, student.lname, student.fname 
-										FROM student,course,professor  
-										WHERE student.UFID = course.student_ID
-										AND professor.gatorlink='$username' 
-										AND course.course_name='$course' ORDER BY student.lname ASC
-										) a where rownum <= 5 
-								 	)where minNum >= 0";
+	$query ="SELECT * from (
+			select a.*, ROWNUM minNum from (
+				SELECT student.UFID, student.lname, student.fname 
+				FROM student,course,professor  
+				WHERE student.UFID = course.student_ID
+				AND professor.gatorlink='$username' 
+				AND course.course_name='$course' ORDER BY student.lname ASC
+				) a where rownum <= 5 
+		 	)where minNum >= 0";
 /*	$query = "	SELECT student.UFID, student.lname, student.fname 
 				FROM student,course,professor  
 				WHERE student.UFID = course.student_ID
@@ -34,10 +34,8 @@ include ('functions.php');
 	echo '<table class= "table table-striped table-bordered table-hover" id = "editTable">';
 	echo "<thead>";
 	echo	"<tr>";
-	echo	'<th colspan="1" rowspan="1" style="width: 180px;" tabindex="0">
-		Student_ID</th>';
-	echo	'<th colspan="1" rowspan="1" style="width: 220px;" tabindex="0">
-			Last Name</th>';
+	echo	'<th colspan="1" rowspan="1" style="width: 180px;" tabindex="0">Student UFID</th>';
+	echo	'<th colspan="1" rowspan="1" style="width: 220px;" tabindex="0">Last Name</th>';
 	echo	'<th colspan="1" rowspan="1" style="width: 288px;" tabindex="0">First Name</th>';
 
 	$i=0;

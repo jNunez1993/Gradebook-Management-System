@@ -2,7 +2,7 @@
 //to view all students in the class.
 	$conn= connect();
 	$username = $_SESSION["username"];
-	$course = "ABE2062";
+	$course = $_SESSION["Course"];
 	$query ="SELECT * from (
 				select a.*, ROWNUM minNum from (
   				SELECT student.UFID, student.lname, student.fname 

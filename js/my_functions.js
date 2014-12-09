@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$("#searchFormStudents").hide();
+	$("#searchFormGrades").hide();
 	$('ul#course_side_menu li a').click( function(){
 		var menu_item = $(this).attr('id');
 		//$('#main_body').load('course/' + menu_item + '.php' );
@@ -20,7 +22,6 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-
 	$(document).on("click", ".view_assignment_modal", function () {
 		var assignment_type = $(this).attr('data-id');
 		var assignment_name = $(this).attr('data-name');
@@ -71,22 +72,20 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-
 	$(document).on("click", "#prof_course_side_menu li a", function () {	
+		$("#searchFormStudents").hide();
+		$("#searchFormGrades").hide();	
 		var menu_item = $(this).attr('id');
-		var course = $(this).attr('course');
 		var menu_url = "";
 		console.log(menu_item);		
-		console.log(course);
-
 		if (menu_item == "Grades") {
+			$("#searchFormGrades").show();
 			menu_url = 'includes/profGradebook.php';
 		}else if (menu_item == "Assignments") {
 			menu_url = 'includes/profAssignments.php';
 		}else if (menu_item == "Students") {
+			$("#searchFormStudents").show();
 			menu_url = 'includes/profStudents.php';
-		}else{
-
 		}
 		if (menu_item == "Home"){
 			//menu_url = 'includes/editTable.php';
@@ -117,5 +116,35 @@ $(document).ready(function(){
             }
 		});
 	});
+
+	$( "#searchFormStudents" ).submit(function( event ) {
+		//alert( "Handler for .submit() called." );
+		//var data: 
+		$.ajax({ 
+			url: 'includes/search.php',
+			data: $("#searchFormStudents").serialize(),
+			type: 'post',
+			success: function(output) {
+				$('#main_course_body').html(output);
+            }
+		});
+		return false;
+	});
+	$( "#searchFormGrades" ).submit(function( event ) {
+		//alert( "Handler for .submit() called." );
+		//var data: 
+		$.ajax({ 
+			url: 'includes/searchGrades.php',
+			data: $("#searchFormGrades").serialize(),
+			type: 'post',
+			success: function(output) {
+				$('#main_course_body').html(output);
+            }
+		});
+		return false;
+	});
+
+
+
 
 });
