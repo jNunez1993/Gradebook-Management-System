@@ -27,7 +27,6 @@
 	echo	'<th colspan="1" rowspan="1" style="width: 180px;" tabindex="0">Student_ID</th>';
 	echo	'<th colspan="1" rowspan="1" style="width: 220px;" tabindex="0">Last Name</th>';
 	echo	'<th colspan="1" rowspan="1" style="width: 288px;" tabindex="0">First Name</th>';
-	//$i=0;
 	while (($row=oci_fetch_row($stid1))!=false){
 		foreach($row as $item){
 		echo  '<th>' . $item . '</th>';

@@ -28,17 +28,6 @@ if(isset($_POST['type'])){
 //NEEDS TO BE GENERIC
 	$stid = oci_parse($conn,$query);
 	oci_execute($stid);
-	///SEARCH FEATURE
-	/*echo '	<form id = "searchStudents" class = "form-inline" role="form" method="post"> 
-				<div class="form-group" id = "grade_search">
-					<input type="text" class="form-control" name = "UFID" placeholder="Search with UFID">
-				</div>
-				<input type="submit" class="btn btn-default">Submit</input>
-			</form>
-			<div id = "other">Other </div>
-			';
-*/	
-
 	echo '<table class = "table table-hover table-condensed">';
 	echo '	<tr>
 				<th> Last Name </th>

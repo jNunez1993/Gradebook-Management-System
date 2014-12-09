@@ -88,9 +88,6 @@ $(document).ready(function(){
 			menu_url = 'includes/profStudents.php';
 		}
 		if (menu_item == "Home"){
-			//menu_url = 'includes/editTable.php';
-			//menu_url = 'includes/profMainCourse.php';
-			//console.log(course);
 			window.location.replace("http://localhost/Gradebook-Management-system/includes/profMainCourse.php");
 		}else {
 			$.ajax({ 
@@ -118,8 +115,6 @@ $(document).ready(function(){
 	});
 
 	$( "#searchFormStudents" ).submit(function( event ) {
-		//alert( "Handler for .submit() called." );
-		//var data: 
 		$.ajax({ 
 			url: 'includes/search.php',
 			data: $("#searchFormStudents").serialize(),
@@ -130,9 +125,7 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-	$( "#searchFormGrades" ).submit(function( event ) {
-		//alert( "Handler for .submit() called." );
-		//var data: 
+	$( "#searchFormGrades" ).submit(function( event ) { 
 		$.ajax({ 
 			url: 'includes/searchGrades.php',
 			data: $("#searchFormGrades").serialize(),

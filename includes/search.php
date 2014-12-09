@@ -14,7 +14,6 @@ $row = oci_fetch_row($stid);
 if (empty($row[0])) {
 	echo '<div class="alert alert-warning" role="alert">No students exist with that UFID in your class</div>';
 }else{
-	//echo 'Hello There ' . $row[0] . $row[1] . $row[2];
 	echo '<table class = "table table-hover table-condensed">';
 	echo '	<tr>
 				<th> Last Name </th>

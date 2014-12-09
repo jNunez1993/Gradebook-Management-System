@@ -16,7 +16,7 @@ if(isset($_POST['type'])){
 						AND course.student_ID = student.UFID
 						ORDER BY student.lname ASC
 					) a where rownum <= 13 
-			 	)where minNum >= 11";
+			 	)where minNum >= 0";
 
 //NEEDS TO BE GENERIC
 	$stid = oci_parse($conn,$query);
