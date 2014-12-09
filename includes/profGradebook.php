@@ -17,7 +17,7 @@ include ('functions.php');
 	oci_execute($stid);
 	$query1= "SELECT distinct assignment_name 
 			FROM  (select assignment_name  from grade 
-			where grade.student_ID = '75391612' AND grade.course_name = '$course') 
+			where grade.course_name = '$course') 
 			ORDER BY assignment_name asc";
 	$stid1=oci_parse($conn,$query1);
 	oci_execute($stid1); 
