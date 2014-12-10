@@ -9,13 +9,9 @@ if(isset($_POST['submit'])) {
 	$assignmentType = $_POST['assignmentType'];
 	$assignmentName = $_POST['assignmentName'];
 
-	$studentUFID = "SELECT * from (
-	  					SELECT a.*, ROWNUM minNum from (
-	    					SELECT distinct student_id 
-							FROM grade 
-							WHERE grade.course_name = '$course'
-	  					) a where rownum <= 13 
-					) where minNum >= 11";
+	$studentUFID = "SELECT distinct student_id 
+					FROM grade 
+					WHERE grade.course_name = '$course'";
 
 	$sUFID = oci_parse($conn, $studentUFID);
 	oci_execute($sUFID);
