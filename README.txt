@@ -1,10 +1,19 @@
-Password to my cise oracle acc jnunez,Gato8115851.
-Download WAMP/MAMP and put these files in the www directory
+Gradebook Management tool
 
-http://localhost/login.php in your browser to view the login screen. Use ClaytonTate,password as the info to log in as a student and
-CastroK,password to log in as a professor. 
 
-The tables that I have created are called student, professor, course. Open up SQL dev and just view these using sql commands to see
-their attributes. I havent created a table for grades yet. Right now it's a bit confusing because, the student has 4 classes but the same
-professor teaches those classes. I'll make the data a bit more realistic later but it's good enough for testing. I chose the name
-GatorLearning as a placeholder. Feel free to make suggestions
+Student view:
+Each student is given a username and password that they log in with. Once logged in, they 
+will see a list of their professors' announcements. They can also click on a general 
+gradebook page that shows them their current grade in each of their classes and how they
+are doing relative to the class average. Students can also click on each of their classes
+individually. In each of their class's pages they can view their gradebook for that specific
+class. They also have access to any document that their teacher uploaded for them.
+
+Professor view:
+Professors log in with a given username and password. Once logged in, they will be able to
+see the announcements that they have posted for their class and have the ability to continue
+to add more. They can also click on each of the classes they are teaching separately and
+head into the gradebook section. In the gradebook section they can add grades and update grades
+
+
+
