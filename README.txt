@@ -7,7 +7,7 @@ will see a list of their professors' announcements. They can also click on a gen
 gradebook page that shows them their current grade in each of their classes and how they
 are doing relative to the class average. Students can also click on each of their classes
 individually. In each of their class's pages they can view their gradebook for that specific
-class. They also have access to any document that their teacher uploaded for them.
+class. They also have access to any document that their teacher uploaded for them
 
 Professor view:
 Professors log in with a given username and password. Once logged in, they will be able to
